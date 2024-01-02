@@ -34,20 +34,6 @@ client.once(Events.ClientReady, async () => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-function Uptime() {
-    const [startTime] = useState(Date.now());
-    const [currentTime, setCurrentTime] = useState(Date.now());
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTime(Date.now());
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
-    return <>this message has been shown for {currentTime - startTime}ms</>;
-}
-
 type User = {
     Id: number;
     Name: string;
@@ -58,11 +44,6 @@ type User = {
 
 client.on(Events.InteractionCreate, async (interaction) => {
     if (interaction.isChatInputCommand()) {
-        if (interaction.commandName === "uptime") {
-            const instance = reacord.createInteractionReply(interaction);
-            instance.render(<Uptime />);
-        }
-
         if (interaction.commandName === "user") {
             const instance = reacord.createInteractionReply(interaction);
             const username = interaction.options.getString("user");
