@@ -1,0 +1,4 @@
+.env
+bot.db*
+dist
+node_modules
