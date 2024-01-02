@@ -16,11 +16,6 @@ client.once(Events.ClientReady, async () => {
     console.log("Ready! Creating commands...");
     await client.application?.commands.create(
         new SlashCommandBuilder()
-            .setName("uptime")
-            .setDescription("Shows the uptime of the bot.")
-    );
-    await client.application?.commands.create(
-        new SlashCommandBuilder()
             .setName("user")
             .setDescription("Shows the stats of a user.")
             .addStringOption((option) =>
